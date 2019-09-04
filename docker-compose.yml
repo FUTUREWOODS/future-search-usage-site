@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  wp-api:
+    build: wordpress
+    ports:
+      - 9000:80
+    links:
+      - db
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: database_password
+
+  db:
+    image: mysql:5.7
+    ports:
+      - 4306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: database_password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: database_password
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/data:/docker-entrypoint-initdb.d
+
+  frontend:
+    image: node:10
+    ports:
+      - 3000:3000
+    links:
+      - wp-api
+    volumes:
+      - ./frontend:/usr/local/app
+    environment:
+      WP_URL: "http://wp-api:80"
+    restart: always
+    working_dir: /usr/local/app
+    entrypoint: "/bin/bash"
+    command: "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
