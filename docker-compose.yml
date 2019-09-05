@@ -29,7 +29,7 @@ services:
       - ./db/data:/docker-entrypoint-initdb.d
 
   frontend:
-    image: node:10
+    build: frontend
     ports:
       - 3000:3000
     links:
