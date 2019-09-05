@@ -1,5 +1,9 @@
+import Layout from '../components/layout/Layout';
+
+import Button from 'react-bootstrap/Button';
+
 const Home = () => {
-  return <div>Hello</div>;
+  return <Layout><Button>test</Button></Layout>;
 }
 
 export default Home;
