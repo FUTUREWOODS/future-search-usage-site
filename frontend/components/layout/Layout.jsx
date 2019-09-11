@@ -37,6 +37,6 @@ const Content = styled.div`
   background-color: #FFF;
   border: 1px solid #dadada;
   border-radius: 10px;
-  padding: 100px 96px;
+  padding: 100px 48px;
 `;
 

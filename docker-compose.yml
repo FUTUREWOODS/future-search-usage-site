@@ -13,7 +13,7 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wp_user
       WORDPRESS_DB_PASSWORD: database_password
-
+      
   db:
     image: mysql:5.7
     ports:
