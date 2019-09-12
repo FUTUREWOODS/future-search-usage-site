@@ -8,19 +8,6 @@ import PageHead from '../../components/molecules/PageHead';
 import Api from '../../lib/api';
 import { mailTemplateFormatter } from '../../lib/formatter';
 
-const popupsSample = [
-  {
-    id: 32,
-    post_title: 'case_1',
-    post_content: "<!-- wp:paragraph -->\n<p>ほげほげほげほげ私の名前hogehogeです。どうぞよろしく</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>ほげほげほげｈげお</p>\n<!-- /wp:paragraph -->",
-    visible: false,
-  },{
-    id: 33,
-    post_title: 'case_2',
-    post_content: "<!-- wp:paragraph -->\n<p>ほげほげほげほげ私の名前hogehogeです。どうぞよろしく</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>ほげほげほげｈげお</p>\n<!-- /wp:paragraph -->"
-  }
-];
-
 export default class MailTemplateShow extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +36,13 @@ export default class MailTemplateShow extends Component {
           position: { y },
         };
       }
+      if (popup.post_title.indexOf(nodeId) > -1) {
+        return {
+          ...popup,
+          visible: true,
+          position: { y },
+        };
+      }
       return popup;
     });
     this.setState({ popups: popupContents });
@@ -67,20 +61,26 @@ export default class MailTemplateShow extends Component {
       <Layout>
         <PageHead title={title} />
         <Content>
-          <ContentTitle>
-            <h5>＜タイトル＞</h5>
-            <p>{postTitle}</p>
-          </ContentTitle>
-          <ContentBody>
-            <h5>＜本文＞</h5>
             <Row>
-              <Col sm={8}>
-                <div
-                  onMouseOver={this.popup}
-                  onMouseOut={this.removePopup}
-                  dangerouslySetInnerHTML={{__html : body}} />
-              </Col>
-              <Col sm={4}>
+              <ColMain sm={8}>
+                <ContentTitle>
+                  <h5>＜タイトル＞</h5>
+                  <p id="title"
+                    onMouseOver={this.popup}
+                    onMouseOut={this.removePopup}>
+                    {postTitle}
+                  </p>
+                </ContentTitle>
+                <ContentBody>
+                  <h5>＜本文＞</h5>
+                  <div
+                    onMouseOver={this.popup}
+                    onMouseOut={this.removePopup}
+                    dangerouslySetInnerHTML={{__html : body}} />
+                </ContentBody>
+              </ColMain>
+              <ColLine sm={4}>
+                <CautionText>※ マーカー部分にマウスをあてることで、本文作成のヒントが表示されます。</CautionText>
                 {
                   popups.map(popup => {
                     return popup.visible && (
@@ -90,9 +90,8 @@ export default class MailTemplateShow extends Component {
                     )
                   })
                 }
-              </Col>
+              </ColLine>
             </Row>
-          </ContentBody>
         </Content>
       </Layout>
     )
@@ -117,12 +116,12 @@ const ContentTitle = styled.div`
 `;
 
 const ContentBody = styled.div`
-  margin-top: 80px;
+  margin-top: 70px;
 `;
 const WrappBalloon = styled.div`
   position: absolute;
   top: ${props => props.y}px;
-  left: 0px;
+  left: -10px;
   width: 100%;
 `;
 const Balloon = styled.div`
@@ -132,7 +131,6 @@ const Balloon = styled.div`
   min-width: 120px;
   max-width: 100%;
   color: #555;
-  font-size: 16px;
   background: #fafcff;
   border-radius: 10px;
   border: 1px solid #cddbec;
@@ -162,4 +160,16 @@ const Balloon = styled.div`
     margin: 0;
     padding: 0;
   }
+`;
+
+const CautionText = styled.p`
+  font-size: 12px;
+`;
+
+
+const ColMain = styled(Col)`
+  padding-right: 38px;
+`;
+const ColLine = styled(Col)`
+  border-left: 1px solid #dadada;
 `;

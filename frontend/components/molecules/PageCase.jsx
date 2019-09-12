@@ -6,5 +6,5 @@ export default ({ children }) => {
 }
 
 const Cases = styled.div`
-  margin-top: 140px;
+  margin-top: 70px;
 `;

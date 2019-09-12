@@ -1,50 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Row, Col, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+import * as moment from 'moment';
+import 'moment/locale/ja';
 
 import Layout from '../../components/layout/Layout';
 import PageHead from '../../components/molecules/PageHead';
 
 import Color from '../../config/Colors';
-
-const sampleCases = [
-  {
-    id: 32,
-    title: 'hogehoge',
-    query: '人材',
-    date_identification: '3ヶ月以内',
-    scope: 'すべて',
-    date_analysis: '3ヶ月以内',
-    area: '東京都',
-    fw_code: '',
-    listing_class: '',
-    new_construction: '',
-    establishment_date: '',
-    capital: '',
-    employee: '',
-    search_result: 0,
-    created_search_history: '',
-    delete_words: ''
-  },
-  {
-    id: 32,
-    title: 'hogehoge',
-    query: '人材',
-    date_identification: '3ヶ月以内',
-    scope: 'すべて',
-    date_analysis: '3ヶ月以内',
-    area: '東京都',
-    fw_code: '',
-    listing_class: '',
-    new_construction: '',
-    establishment_date: '',
-    capital: '',
-    employee: '',
-    search_result: 0,
-    created_search_history: '',
-    delete_words: ''
-  }
-];
+import { searchCaseTitleFormatter } from '../../lib/formatter';
+import Api from '../../lib/api';
 
 export default class SearchCaseShow extends Component {
   constructor(props) {
@@ -52,63 +17,101 @@ export default class SearchCaseShow extends Component {
   }
 
   render() {
+    const { searchCases } = this.props;
     return (
       <Layout>
         {
-          sampleCases.map((item, index) =>
-            <>
-              <PageHead title={`CASE${index} : ${item.title}`} />
+          searchCases.map((item, index) =>
+            <div id={item.id} key={item.id}>
+              <PageHead title={`CASE${index + 1}&nbsp;:&nbsp;${item.title}`} />
               <Content>
                 <ContentBody>
                   <Table borderless>
                     <TBody>
                       <tr>
                         <th>キーワード</th>
-                        <td>: {item.query}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.query}</span>
+                          （※1）
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>除外ワード</th>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.delete_words || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>検索範囲</th>
-                        <td>: {item.scope}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.scope}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>新規取得日</th>
-                        <td>: {item.date_identification}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.date_identification}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>更新日</th>
-                        <td>: {item.date_analysis}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.date_analysis}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>エリア</th>
-                        <td>: {item.area}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.area || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>業種</th>
-                        <td>: {item.fw_code}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.fw_code || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>上場区分</th>
-                        <td>: {item.listing_class}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.listing_class || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>新規登記</th>
-                        <td>: {item.new_construction}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.new_construction || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>設立年月日</th>
-                        <td>: {item.establishment_date}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.establishment_date || '(指定なし)'}</span>
+                        </td>
                       </tr>
                       <tr>
                         <th>資本金</th>
-                        <td>: {item.capital}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>
+                            {item.capital || '(指定なし)'}
+                          </span>  
+                          （※2）
+                        </td>
                       </tr>
                       <tr>
                         <th>従業員数</th>
-                        <td>: {item.query}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <span>{item.employee || '(指定なし)'}</span>
+                          （※3）
+                        </td>
                       </tr>
                       <tr>
                         <th>検索結果</th>
-                        <td>: {item.search_result}</td>
+                        <td>:&nbsp;&nbsp;&nbsp;
+                          <ResultCount>{parseInt(item.search_result).toLocaleString()}</ResultCount>
+                          &nbsp;&nbsp;
+                          ({moment(item.created_search_history).format('ll')}時点)
+                        </td>
                       </tr>
                     </TBody>
                   </Table>
@@ -121,7 +124,7 @@ export default class SearchCaseShow extends Component {
                   </Coution>
                 </ContentBody>
               </Content>
-            </>
+            </div>
           )
         }
       </Layout>
@@ -129,8 +132,15 @@ export default class SearchCaseShow extends Component {
   }
 }
 
+SearchCaseShow.getInitialProps = async function(context, req) {
+  const api = new Api();
+  let searchCases = await api.searchCases().orderby('date').order('desc');
+  searchCases = searchCases.map(item => searchCaseTitleFormatter(item));
+  return { searchCases }
+}
+
 const Content = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 140px;
 `;
 
 const Coution = styled.div`
@@ -143,17 +153,32 @@ const Coution = styled.div`
 `;
 
 const ContentBody = styled.div`
-  margin-top: 80px;
+  margin-top: 70px;
 `;
 
 const TBody = styled.tbody`
   tr:last-child {
     border-top: 1px dashed #333333;
+    th {
+      padding-top: 1.8rem;
+    }
+    td {
+      padding-top: 1rem;
+    }
+  }
+  th, td {
+    padding: 0.5rem 0.75rem;
   }
   th {
     width: 120px;
   }
   td {
-    font-weight: bold;
+    span {
+      font-weight: bold;
+    }
   }
+`;
+
+const ResultCount = styled.span`
+  font-size: 1.6rem;
 `;

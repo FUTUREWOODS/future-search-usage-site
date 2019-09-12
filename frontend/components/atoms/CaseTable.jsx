@@ -1,5 +1,6 @@
 import { Table } from 'react-bootstrap';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import Colors from '../../config/Colors';
 
@@ -14,7 +15,9 @@ export default ({cases}) => {
                 case{index + 1}　:
               </th>
               <td>
-                <a href="#">{item.title}></a>
+                <a href={`/search_cases/show#${item.id}`} >
+                  {item.title}>
+                </a>
               </td>
             </Trow>
           ))
@@ -25,8 +28,7 @@ export default ({cases}) => {
 }
 
 const Trow = styled.tr`
-  font-size: 18px;
-  line-height: 36px;
+  line-height: 24px;
   th {
     color: ${ Colors.TEXT_ACTIVE };
     padding-left: 0 !important;

@@ -7,7 +7,6 @@ export const mailTemplateTitleFormtter = ({ id, title }) => {
 }
 
 export const mailTemplateFormatter = ({ id, title, acf }) => {
-  console.log(title)
   const { rendered } = title;
   const { post_title, body, popups } = acf;
   const items = popups.map(popup => ({ post_title: popup.post_title, post_content: popup.post_content, id: popup.ID, visible: false }))
@@ -17,5 +16,15 @@ export const mailTemplateFormatter = ({ id, title, acf }) => {
     postTitle: post_title,
     body,
     popups: items,
+  };
+}
+
+
+export const searchCaseTitleFormatter = ({ id, title, acf }) => {
+  const { rendered } = title;
+  return {
+    title: rendered,
+    id,
+    ...acf,
   };
 }

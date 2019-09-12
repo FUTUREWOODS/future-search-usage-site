@@ -19,7 +19,7 @@ export default () => {
 
 const SideMenu = styled.ul`
   li {
-    margin-bottom: 28px;
+    margin-bottom: 14px;
     a {
       color: #666666;
       &.active {

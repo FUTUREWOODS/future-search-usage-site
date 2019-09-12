@@ -7,5 +7,7 @@ export default ({ children }) => {
 }
 
 const Title = styled.h2`
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: ${ Colors.TEXT_ACTIVE };
 `;

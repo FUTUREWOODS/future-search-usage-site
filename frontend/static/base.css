@@ -1,14 +1,15 @@
 body {
+  font-size: 0.875rem;
   font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
   color: #666666;
 }
 
-[id*="case_"] {
-  background: linear-gradient(transparent 0%, #e2edfa 0%);
+[id*="case_"], [id*="title"] {
+  background: linear-gradient(transparent 10%, #e2edfa 10%);
   cursor: pointer;
 }
 
-[id*="case_"]:hover {
+[id*="case_"]:hover, [id*="title"]:hover {
   background: linear-gradient(transparent 0%, #a7cdf9 0%);
 }
 

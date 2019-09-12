@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
 
 import Layout from '../../components/layout/Layout';
 import PageHead from '../../components/molecules/PageHead';
@@ -8,7 +7,6 @@ import CaseList from '../../components/atoms/CaseList';
 
 import Api from '../../lib/api';
 import { mailTemplateTitleFormtter } from '../../lib/formatter';
-import MailTemplateShow from './show';
 
 const description = `企業のキーマンの目に留まりやすい企業サイトの【お問合せフォーム】を使用した「コンタクトアシスト」を利用すると、繰り返し入力の手間が省け、営業効率化が可能！
 お問い合わせに使用するリストは、ビジネスサーチで作成した法人リストをそのままお使いいただけます。

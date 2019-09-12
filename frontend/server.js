@@ -11,9 +11,15 @@ app.prepare()
 
   server.get('/mail_templates/:id', (req, res) => {
     const actualPage = '/mail_templates/show';
-    const queryParams = { id: req.params.id }
+    const queryParams = { id: req.params.id };
     app.render(req, res, actualPage, queryParams);
-  })
+  });
+
+  server.get('/search_cases/show#:id', (req, res) => {
+    const actualPage = '/search_cases/show';
+    const queryParams = { id: req.params.id };
+    app.render(req, res, actualPage, queryParams);
+  });
 
   server.get('*', (req, res) => {
     return handle(req, res)

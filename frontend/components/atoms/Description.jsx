@@ -5,6 +5,6 @@ export default ({ children }) => {
 }
 
 const Description = styled.p`
-  margin-top: 70px;
+  margin-top: 35px;
   line-height: 28px;
 `;

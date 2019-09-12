@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export default () => {
   return (
@@ -8,7 +9,9 @@ export default () => {
         <Row className="justify-content-center">
           <Col>
             <LogoWrapper className="text-center">
-              <LogoImage src="../../static/logo.png" />
+              <a href='/'>
+                <LogoImage src="../../static/logo.png" />
+              </a>
             </LogoWrapper>
           </Col>
         </Row>
@@ -17,9 +20,8 @@ export default () => {
   )
 }
 const LogoWrapper = styled.div`
-  padding: 20px 0;
+  padding: 10px 0;
 `;
 const LogoImage = styled.img`
-  height: 80px;
-
+  height: 45px;
 `;

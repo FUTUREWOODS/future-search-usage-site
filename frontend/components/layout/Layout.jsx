@@ -30,13 +30,13 @@ export default ({children}) => {
 
 const Main = styled.div`
   background-color: #e2edfa;
-  padding: 100px 0;
+  padding: 50px 0;
 `;
 
 const Content = styled.div`
   background-color: #FFF;
   border: 1px solid #dadada;
   border-radius: 10px;
-  padding: 100px 48px;
+  padding: 50px 38px;
 `;
 
