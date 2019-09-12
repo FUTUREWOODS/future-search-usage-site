@@ -9,7 +9,7 @@ export default ({ cases }) => {
           return (
             <li key={item.id}>
               <Link href={`/mail_templates/${item.id}`} >
-                <a>{item.title}</a>
+                <a dangerouslySetInnerHTML={{__html: item.title}} />
               </Link>
             </li>
           )
