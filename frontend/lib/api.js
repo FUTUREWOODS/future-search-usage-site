@@ -2,7 +2,9 @@ import WPAPI from 'wpapi';
 
 class Api {
   constructor() {
-    this.endpoint = new WPAPI({ endpoint: `http://wp-api:80/wp-json` });
+    const isProduction = process.env.NODE_ENV === 'production';
+    const endpoint = isProduction ? process.env.WP_URL : `http://wp-api:80`;
+    this.endpoint = new WPAPI({ endpoint: `${endpoint}/wp-json` });
   }
 
   mailTemplates() {
