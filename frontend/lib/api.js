@@ -8,12 +8,12 @@ class Api {
   }
 
   mailTemplates() {
-    this.endpoint.mailTemplates = this.endpoint.registerRoute('wp/v3', '/mail_templates/(?P<id>[0-9]+)');
+    this.endpoint.mailTemplates = this.endpoint.registerRoute('wp/v2', '/mail_templates/(?P<id>[0-9]+)');
     return this.endpoint.mailTemplates();
   }
 
   searchCases() {
-    this.endpoint.searchCases = this.endpoint.registerRoute('wp/v3','/cases/(?P<id>[0-9]+)');
+    this.endpoint.searchCases = this.endpoint.registerRoute('wp/v2','/cases/(?P<id>[0-9]+)');
     return this.endpoint.searchCases();
   }
 }
