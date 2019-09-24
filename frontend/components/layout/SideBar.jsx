@@ -9,7 +9,7 @@ export default () => {
           <a href="/" className="active">検索事例 &gt;</a>
         </li>
         <li>
-          <a href="/mail_templates">メールテンプレート &gt;</a>
+          <a href="/mail_templates" className="active">メールテンプレート &gt;</a>
         </li>
       </SideMenu>
     </div>

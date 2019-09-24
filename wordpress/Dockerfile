@@ -18,7 +18,7 @@ RUN set -ex; \
     && wget -q -O wp-api-menus.zip https://downloads.wordpress.org/plugin/wp-api-menus.zip \
     && wget -q -O custom-post-type-ui.zip https://downloads.wordpress.org/plugin/custom-post-type-ui.1.6.2.zip \
     && unzip -q -o '*.zip' -d /usr/src/wordpress/wp-content/plugins \
-    && chown -R www-data:www-data /usr/src/wordpress/wp-content \
+    && chown -R www-data:www-data /usr/src/wordpress \
     && rm -rf /tmp/*
 
 WORKDIR /tmp/wp-themes

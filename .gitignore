@@ -119,3 +119,5 @@ wp-content/themes/twenty*/
 
 # docker
 db
+config/.ssh/
+config/wordmove/
