@@ -108,7 +108,7 @@ export default class SearchCaseShow extends Component {
                       <tr>
                         <th>検索結果</th>
                         <td>:&nbsp;&nbsp;&nbsp;
-                          <ResultCount>{parseInt(item.search_result).toLocaleString()}</ResultCount>
+                          <ResultCount>{parseInt(item.search_result).toLocaleString()}</ResultCount>件
                           &nbsp;&nbsp;
                           ({moment(item.created_search_history).format('ll')}時点)
                         </td>
@@ -127,6 +127,12 @@ export default class SearchCaseShow extends Component {
             </div>
           )
         }
+        <div id={searchCases.length + 1}>
+          <PageHead title={`CASE${searchCases.length + 1}&nbsp;:&nbsp;その他（採用に力を入れている会社にアプローチをしたい、セキュリティー関連商品を販売したい会社にアプローチしたい、などなど）別途ご相談ください。`} />
+          <Content>
+            お問い合わせは<a href="https://future-search.jp/" target="_blank">こちら</a>(リンク先吹き出しのマークよりお問い合わせいただけます。)
+          </Content>
+        </div>
       </Layout>
     )
   }
