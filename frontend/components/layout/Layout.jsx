@@ -5,7 +5,7 @@ import Header from './Header';
 import SideBar from './SideBar';
 import Footer from './Footer';
 
-export default ({children}) => {
+export default ({children, currentPath = '/'}) => {
   return (
     <div>
       <Header />
@@ -13,7 +13,7 @@ export default ({children}) => {
         <Container>
           <Row>
             <Col xs={6} md={3} >
-              <SideBar />
+              <SideBar currentPath={currentPath} />
             </Col>
             <Col xs={12} md={9} >
               <Content>
