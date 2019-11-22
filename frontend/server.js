@@ -21,6 +21,12 @@ app.prepare()
     app.render(req, res, actualPage, queryParams);
   });
 
+  server.get('/documents/:slug', (req, res) => {
+    const actualPage = '/documents';
+    const queryParams = { slug: req.params.slug };
+    app.render(req, res, actualPage, queryParams);
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
