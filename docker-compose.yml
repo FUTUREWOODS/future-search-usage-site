@@ -42,8 +42,7 @@ services:
     environment:
       WP_URL: "http://wp-api:80"
     restart: always
-    working_dir: /usr/local/app
-    entrypoint: "/bin/bash"
+    entrypoint: "/bin/sh"
     command: "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
 volumes:
   db-data:
