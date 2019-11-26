@@ -27,7 +27,7 @@ services:
       MYSQL_USER: wp_user
       MYSQL_PASSWORD: database_password
     volumes:
-      - ./db/data:/var/lib/mysql
+      - db-data:/var/lib/mysql
       - ./db/data:/docker-entrypoint-initdb.d
 
   frontend:
@@ -45,4 +45,6 @@ services:
     working_dir: /usr/local/app
     entrypoint: "/bin/bash"
     command: "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
-  
+volumes:
+  db-data:
+    driver: local

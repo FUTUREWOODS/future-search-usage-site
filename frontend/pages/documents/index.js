@@ -13,6 +13,9 @@ const Content = styled('div')`
   h2 {
     font-size: 20px;
   }
+  h3 {
+    font-size: 20px;
+  }
 `;
 
 

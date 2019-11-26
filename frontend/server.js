@@ -15,6 +15,11 @@ app.prepare()
     app.render(req, res, actualPage, queryParams);
   });
 
+  server.get('/mail_templates', (req, res) => {
+    const actualPage = '/mail_templates/index';
+    app.render(req, res, actualPage);
+  });
+
   server.get('/search_cases/show#:id', (req, res) => {
     const actualPage = '/search_cases/show';
     const queryParams = { id: req.params.id };

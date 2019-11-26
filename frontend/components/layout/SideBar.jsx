@@ -7,17 +7,17 @@ export default ({ currentPath }) => {
   return(
     <div>
       <SideMenu>
-        <li className={ (currentPath === '/') ? 'active': '' }>
+        <li>
           <Link href="/" >検索事例 &gt;</Link>
         </li>
-        <li className={ (currentPath.indexOf('/mail_templates') > -1) ? 'active' : '' }>
+        <li>
           <Link href="/mail_templates">メールテンプレート &gt;</Link>
         </li> 
         <hr></hr>
-        <li className={ (currentPath.indexOf('/documents/bs') > -1) ? 'active' : '' }>
+        <li>
           <Link href="/documents/bs">ビジネスサーチマニュアル &gt;</Link>
         </li>
-        <li className={ (currentPath.indexOf('/documents/ca') > -1) ? 'active' : '' }>
+        <li>
           <Link href="/documents/ca">コンタクトアシストマニュアル &gt;</Link>
         </li>
       </SideMenu>
