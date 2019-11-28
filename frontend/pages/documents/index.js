@@ -9,12 +9,44 @@ import styled from 'styled-components';
 const Content = styled('div')`
   img {
     width: 100%;
+    margin-bottom:50px;
   }
   h2 {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight:bold;
+    color: rgba(51, 51, 51);
+    margin-bottom:2.0em;
+    border-bottom: 1px solid #0275d8;
   }
   h3 {
-    font-size: 20px;
+    display:block;
+    font-size: 14px;
+    font-weight:bold;
+    padding:2.8%;
+    background-color:#e2edfa;
+    border-radius: 11px;
+    margin-block-end: 2.5em;
+    margin-block-start: 1em;
+    color: rgba(51, 51, 51);
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(51, 51, 51);
+    padding-bottom:10px
+  }
+  ol {
+    margin-bottom:50px;
+    list-style-type:decimal;
+    padding-left:2em;
+  }
+  li {
+    margin-top: 5px;
+    color:#292b2c;
+  }
+  p {
+    margin-bottom:2.5em;
+    color:#292b2c;
   }
 `;
 
