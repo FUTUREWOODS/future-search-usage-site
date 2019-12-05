@@ -20,6 +20,9 @@ export default ({ currentPath }) => {
         <li>
           <Link href="/documents/ca">コンタクトアシストマニュアル &gt;</Link>
         </li>
+        <li>
+          <Link href="/documents/dp">データプラスマニュアル　&gt;</Link>
+        </li>
       </SideMenu>
     </div>
   )
