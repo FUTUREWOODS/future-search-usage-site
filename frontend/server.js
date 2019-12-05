@@ -15,11 +15,22 @@ app.prepare()
     app.render(req, res, actualPage, queryParams);
   });
 
+  server.get('/mail_templates', (req, res) => {
+    const actualPage = '/mail_templates/index';
+    app.render(req, res, actualPage);
+  });
+
   server.get('/search_cases/show#:id', (req, res) => {
     const actualPage = '/search_cases/show';
     const queryParams = { id: req.params.id };
     app.render(req, res, actualPage, queryParams);
   });
+
+  server.get('/documents/:slug', (req, res) => {
+    const actualPage = '/documents';
+    const queryParams = { slug: req.params.slug };
+    app.render(req, res, actualPage, queryParams);
+  })
 
   server.get('*', (req, res) => {
     return handle(req, res)

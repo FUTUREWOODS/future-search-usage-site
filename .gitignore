@@ -118,6 +118,4 @@ wp-content/themes/twenty*/
 # End of https://www.gitignore.io/api/node,wordpress
 
 # docker
-db
-config/.ssh/
-config/wordmove/
+db/data

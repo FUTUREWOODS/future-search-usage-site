@@ -140,7 +140,7 @@ export default class SearchCaseShow extends Component {
 
 SearchCaseShow.getInitialProps = async function(context, req) {
   const api = new Api();
-  let searchCases = await api.searchCases().orderby('date').order('desc');
+  let searchCases = await api.searchCases().orderby('date').order('asc');
   searchCases = searchCases.map(item => searchCaseTitleFormatter(item));
   return { searchCases }
 }
