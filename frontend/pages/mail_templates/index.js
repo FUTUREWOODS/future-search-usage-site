@@ -19,8 +19,9 @@ export default class Index extends Component {
 
   render() {
     const cases = this.props.mailTemplates;
+    const currentPath = this.props.url.pathname;
     return (
-      <Layout>
+      <Layout currentPath={currentPath}>
         <PageHead title="メールテンプレート" description={description} />
         <PageCase>
           <CaseList cases={cases} />
@@ -30,7 +31,7 @@ export default class Index extends Component {
   }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function({ url }) {
   const api = new Api();
   let mailTemplates = await api.mailTemplates().orderby('date').order('desc');
   mailTemplates = mailTemplates.map(template => mailTemplateTitleFormtter(template));

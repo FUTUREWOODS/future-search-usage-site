@@ -3,6 +3,7 @@ version: "3.7"
 services:
   wp-api:
     build: wordpress
+    container_name: "${PRODUCTION_NAME}_wordpress"
     ports:
       - 9000:80
     links:
@@ -13,9 +14,10 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wp_user
       WORDPRESS_DB_PASSWORD: database_password
-      
+
   db:
     image: mysql:5.7
+    container_name: "${PRODUCTION_NAME}_db"
     ports:
       - 4306:3306
     restart: always
@@ -25,11 +27,12 @@ services:
       MYSQL_USER: wp_user
       MYSQL_PASSWORD: database_password
     volumes:
-      - ./db/data:/var/lib/mysql
+      - db-data:/var/lib/mysql
       - ./db/data:/docker-entrypoint-initdb.d
 
   frontend:
     build: frontend
+    container_name: "${PRODUCTION_NAME}_next"
     ports:
       - 3000:3000
     links:
@@ -39,6 +42,8 @@ services:
     environment:
       WP_URL: "http://wp-api:80"
     restart: always
-    working_dir: /usr/local/app
-    entrypoint: "/bin/bash"
+    entrypoint: "/bin/sh"
     command: "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
+volumes:
+  db-data:
+    driver: local

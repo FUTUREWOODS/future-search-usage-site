@@ -16,12 +16,22 @@ export default ({cases}) => {
               </th>
               <td>
                 <a href={`/search_cases/show#${item.id}`} >
-                  {item.title}>
+                  {item.title}
                 </a>
               </td>
             </Trow>
           ))
         }
+        <Trow>
+          <th>
+            case{cases.length+1}　:
+          </th>
+          <td>
+            <a href={`/search_cases/show#${cases.length+1}`} >
+              その他（採用に力を入れている会社にアプローチをしたい、セキュリティー関連商品を販売したい会社にアプローチしたい、などなど）別途ご相談ください。
+            </a>
+          </td>
+        </Trow>
       </tbody>
     </Table>
   )

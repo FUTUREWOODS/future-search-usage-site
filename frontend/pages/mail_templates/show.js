@@ -57,10 +57,11 @@ export default class MailTemplateShow extends Component {
 
   render() {
     const { title, postTitle, body, popups } = this.state;
+    const currentPath = this.props.url.pathname;
     return (
-      <Layout>
+      <Layout currentPath={currentPath}>
         <PageHead title={title} />
-        <Content>
+        <Content className="content">
             <Row>
               <ColMain sm={8}>
                 <ContentTitle>
