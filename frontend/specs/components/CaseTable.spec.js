@@ -1,9 +1,9 @@
 import React from 'react';
-import {render} from 'enzyme';
-import Layout from "../pages/index";
+import {mount} from 'enzyme';
+import CaseTable from "../../components/atoms/CaseTable";
 
-describe("Layout", () =>{
-    test("h2タグが描画されること", () =>{
+describe("CaseTable", () =>{
+    test("リンクが描画されること", () =>{
         const cases = [{area: "",
         capital: "",
         case_number: "2",
@@ -21,8 +21,8 @@ describe("Layout", () =>{
         scope: "すべて",
         search_result: "1123",
         title: "テスト"}];
-        const wrapper =  render(<Layout cases={cases}/>);
-        console.log(wrapper.find("h2"));
-        expect(wrapper.find("h2").text()).toEqual("検索事例");
+        const wrapper =  mount(<CaseTable cases={cases}/>);
+        console.log(wrapper.find('a').debug());
+        expect(wrapper.find('a').text()).toEqual("テスト");
     });
 });
