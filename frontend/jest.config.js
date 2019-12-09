@@ -3,6 +3,7 @@
 
 module.exports = {
   transform: { "^.+\\.jsx?$": "babel-jest" },
+  setupFiles: ['./jest.setup.js'],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

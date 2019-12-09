@@ -28,6 +28,8 @@
     "babel-plugin-styled-components": "^1.10.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0"
   }
 }
