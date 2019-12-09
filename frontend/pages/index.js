@@ -21,6 +21,7 @@ export default class Index extends Component {
 
   render() {
     const { searchCases } = this.props;
+    console.log(searchCases);
     return (
       <Layout>
         <PageHead title="検索事例" description={description} />
