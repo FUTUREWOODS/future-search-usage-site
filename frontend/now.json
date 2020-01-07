@@ -8,6 +8,7 @@
     { "src": "package.json", "use": "@now/next" }
   ],
   "routes": [
-    { "src": "/mail_templates/(?<id>[^/]+)$", "dest": "mail_templates/show?id=$id" }
+    { "src": "/mail_templates/(?<id>[^/]+)$", "dest": "mail_templates/show?id=$id" },
+    { "src": "/documents/(?<slug>[^/]+)$", "dest": "documents/index?slug=$slug" }
   ]
 }

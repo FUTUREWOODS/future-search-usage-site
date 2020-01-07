@@ -3,25 +3,30 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 export default ({ currentPath }) => {
-  console.log(currentPath)
   return(
     <div>
       <SideMenu>
         <li>
-          <Link href="/" >検索事例 &gt;</Link>
+          <a href="/">検索事例 &gt;</a>
         </li>
         <li>
-          <Link href="/mail_templates">メールテンプレート &gt;</Link>
+          <a href="/mail_templates">メールテンプレート &gt;</a>
         </li> 
         <hr></hr>
         <li>
-          <Link href="/documents/bs">ビジネスサーチマニュアル &gt;</Link>
+          <Link href="/documents/bs">
+            <a>ビジネスサーチマニュアル &gt;</a>
+          </Link>
         </li>
         <li>
-          <Link href="/documents/ca">コンタクトアシストマニュアル &gt;</Link>
+          <Link href="/documents/ca">
+            <a>コンタクトアシストマニュアル &gt;</a>
+          </Link>
         </li>
         <li>
-          <Link href="/documents/dp">データプラスマニュアル　&gt;</Link>
+          <Link href="/documents/dp">
+            <a>データプラスマニュアル &gt;</a>
+          </Link>
         </li>
       </SideMenu>
     </div>

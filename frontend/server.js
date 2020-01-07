@@ -9,16 +9,18 @@ app.prepare()
 .then(() => {
   const server = express();
 
+  server.get('/mail_templates', (req, res) => {
+    console.log(req)
+    const actualPage = '/mail_templates/index';
+    app.render(req, res, actualPage);
+  });
+
   server.get('/mail_templates/:id', (req, res) => {
     const actualPage = '/mail_templates/show';
     const queryParams = { id: req.params.id };
     app.render(req, res, actualPage, queryParams);
   });
 
-  server.get('/mail_templates', (req, res) => {
-    const actualPage = '/mail_templates/index';
-    app.render(req, res, actualPage);
-  });
 
   server.get('/search_cases/show#:id', (req, res) => {
     const actualPage = '/search_cases/show';
@@ -31,6 +33,11 @@ app.prepare()
     const queryParams = { slug: req.params.slug };
     app.render(req, res, actualPage, queryParams);
   })
+
+  server.get('/', (req, res) => {
+    const actualPage = '/';
+    app.render(req, res, actualPage);
+  });
 
   server.get('*', (req, res) => {
     return handle(req, res)
