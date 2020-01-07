@@ -52,8 +52,8 @@ const Content = styled('div')`
 
 
 export default class Index extends React.Component {
-  static async getInitialProps({ req }) {
-    const slug = req.params.slug;
+  static async getInitialProps({ query }) {
+    const { slug } = query;
     const api = new Api();
     const documents = await api.documents(slug);
     return { ...documents[0] }

@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "deploy": "now --target production"
+    "deploy": "now --prod --name future-search-usage-site"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -23,6 +26,7 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "now": "^16.7.1"
   }
 }
