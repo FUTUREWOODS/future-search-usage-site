@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": ["fs-usage.now.sh", "future-search-usage-site.vercel.app"],
+  "alias": ["future-search-usage-site.vercel.app"],
   "builds": [
     { "src": "package.json", "use": "@now/next" }
   ],
