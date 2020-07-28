@@ -119,3 +119,4 @@ wp-content/themes/twenty*/
 
 # docker
 db/data
+.vercel
