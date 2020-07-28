@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": ["fs-usage.now.sh"],
+  "alias": ["fs-usage.now.sh", "future-search-usage-site.vercel.app"],
   "env": {
     "WP_URL": "@wp-url"
   },
