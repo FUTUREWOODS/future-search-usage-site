@@ -20,3 +20,5 @@ $ docker-compose start
 ```
 docker exec -it future_search_usage_db sh -c 'mysqldump wordpress -u wp_user -pdatabase_password 2> /dev/null' > db/data/mysql.dump.sql 
 ```
+
+## Domain
