@@ -23,3 +23,5 @@ docker exec -it future_search_usage_db sh -c 'mysqldump wordpress -u wp_user -pd
 
 ## Domain
 usage.future-search.jp
+
+fsusage.xsrv.jp
