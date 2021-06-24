@@ -32,9 +32,7 @@ export default ({ currentPath }) => {
           <a href='/guides'>検索ガイド &gt;</a>
         </li>
         <li>
-          <Link href='/guides'>
-            <a>活用事例動画 &gt;</a>
-          </Link>
+          <a href='/movies'>活用事例動画 &gt;</a>
         </li>
       </SideMenu>
     </div>
