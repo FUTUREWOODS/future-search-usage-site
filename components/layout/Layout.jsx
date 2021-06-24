@@ -4,10 +4,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Header from './Header';
 import SideBar from './SideBar';
 import Footer from './Footer';
+import React from 'react';
 
 export default ({children, currentPath = '/'}) => {
   return (
-    <div>
+    <div style={Style}>
       <Header />
       <Main>
         <Container>
@@ -40,3 +41,8 @@ const Content = styled.div`
   padding: 50px 38px;
 `;
 
+const Style = {
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh"
+}
