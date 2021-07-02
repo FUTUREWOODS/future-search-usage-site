@@ -43,6 +43,12 @@ const Content = styled('div')`
   li {
     margin-top: 5px;
     color:#292b2c;
+    .bs-index {
+      color: #292b2c;
+    }
+    .ca-index {
+      color: #292b2c;
+    }
   }
   p {
     margin-bottom:2.5em;
