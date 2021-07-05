@@ -12,8 +12,6 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const title = this.props.title;
-    const { rendered } = this.props.content;
     return (
       <Layout>
         <PageHead title={'簡単検索ガイド'} description={''} />
