@@ -32,6 +32,7 @@ export default ({children, currentPath = '/'}) => {
 const Main = styled.div`
   background-color: #e2edfa;
   padding: 50px 0;
+  min-height: 80vh;
 `;
 
 const Content = styled.div`
