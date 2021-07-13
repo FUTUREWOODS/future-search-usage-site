@@ -1,16 +1,8 @@
 import Layout from '../../components/layout/Layout';
 import PageHead from '../../components/molecules/PageHead';
 import PageCase from '../../components/molecules/PageCase';
-import Api from '../../lib/api';
 
 export default class Index extends React.Component {
-  static async getInitialProps({ query }) {
-    const { slug } = query;
-    const api = new Api();
-    const documents = await api.documents(slug);
-    return { ...documents[0] };
-  }
-
   render() {
     return (
       <Layout>
@@ -24,7 +16,7 @@ export default class Index extends React.Component {
             下記の検索ガイドで解説しておりますのでぜひご覧ください。
           </p>
           <p className='mt-5'>
-            <a href=''>検索ガイドはこちら</a>
+            <a href='https://service.future-search.jp/pdf/Manual_guide.pdf'>検索ガイドはこちら</a>
           </p>
           <div className='mb-5'></div>
         </PageCase>

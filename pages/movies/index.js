@@ -1,7 +1,6 @@
 import Layout from '../../components/layout/Layout';
 import PageHead from '../../components/molecules/PageHead';
 import PageCase from '../../components/molecules/PageCase';
-import Api from '../../lib/api';
 import Youtube from 'react-youtube'
 import styled from 'styled-components';
 
@@ -37,22 +36,21 @@ const MovieText = styled.p`
   margin-bottom: 0;
 `;
 
-export default class Index extends React.Component {
-  static async getInitialProps({ query }) {
-    const { slug } = query;
-    const api = new Api();
-    const documents = await api.documents(slug);
-    return { ...documents[0] };
+const opts = {
+  height: "400px",
+  width: "100%",
+  playerVars: {
+    mute: "1"
   }
+};
 
+const BEGIN_VIDEO_ID = "bnt3QaJ5Vf8";
+const MIDDLE_VIDEO_ID = "L-jf2FbL_58";
+const HIGH_VIDEO_ID = "bnt3QaJ5Vf8";
+const EXTRA_VIDEO_ID = "L-jf2FbL_58";
+
+export default class Index extends React.Component {
   render() {
-    const opts = {
-      height: "400px",
-      width: "100%",
-      playerVars: {
-        mute: "1"
-      }
-    };
     return (
       <Layout>
         <PageHead title={'活用事例動画'}
@@ -98,7 +96,7 @@ export default class Index extends React.Component {
                   「テレワーク中、またはテレワークの商材を持つ企業」に、新しいWebアプリの営業を行いたい
               </MovieText>
             </MovieTextBg>
-            <Youtube videoId="bnt3QaJ5Vf8" opts={opts} />
+            <Youtube videoId={BEGIN_VIDEO_ID} opts={opts} />
           </MovieItem>
           <MovieItem id="middle">
             <MovieTextBg>
@@ -110,7 +108,7 @@ export default class Index extends React.Component {
                   「Pマークの取得支援をしているコンサル」に、新しいWebアプリの営業を行いたい
               </MovieText>
             </MovieTextBg>
-            <Youtube videoId="L-jf2FbL_58" opts={opts} />
+            <Youtube videoId={MIDDLE_VIDEO_ID} opts={opts} />
           </MovieItem>
           <MovieItem id="high">
             <MovieTextBg>
@@ -120,7 +118,7 @@ export default class Index extends React.Component {
                   「海外に拠点を持つ関東圏内の中規模の製造メーカー」に、物流コンサルの営業を行いたい
               </MovieText>
             </MovieTextBg>
-            <Youtube videoId="bnt3QaJ5Vf8" opts={opts} />
+            <Youtube videoId={HIGH_VIDEO_ID} opts={opts} />
           </MovieItem>
           <MovieItem id="extra">
             <MovieTextBg>
@@ -132,7 +130,7 @@ export default class Index extends React.Component {
                   「健康増進を方針として掲げている中小企業」に、経営コンサルの営業を行いたい
               </MovieText>
             </MovieTextBg>
-            <Youtube videoId="L-jf2FbL_58" opts={opts} />
+            <Youtube videoId={EXTRA_VIDEO_ID} opts={opts} />
           </MovieItem>
         </PageCase>
       </Layout>
