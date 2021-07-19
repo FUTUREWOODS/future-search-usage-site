@@ -44,10 +44,10 @@ const opts = {
   }
 };
 
-const BEGIN_VIDEO_ID = "bnt3QaJ5Vf8";
-const MIDDLE_VIDEO_ID = "L-jf2FbL_58";
-const HIGH_VIDEO_ID = "bnt3QaJ5Vf8";
-const EXTRA_VIDEO_ID = "L-jf2FbL_58";
+const BEGIN_VIDEO_ID = "1O2yxtOsxzg";
+const MIDDLE_VIDEO_ID = "nDf0lhr0qHM";
+const HIGH_VIDEO_ID = "1T62v1wopzQ";
+const EXTRA_VIDEO_ID = "pzFzJZd6j78";
 
 export default class Index extends React.Component {
   render() {
@@ -69,7 +69,7 @@ export default class Index extends React.Component {
                 </Link>
                 <br />
                 <Link href="#middle">
-                  中級編：「自然素材などを扱う住宅メーカー」に、新しい資材の営業を行いたい
+                  中級編：「東京都、神奈川県で自然素材などを扱う住宅メーカー」に、新しい資材の営業を行いたい
                 <br />
                   <Span />「Pマークの取得支援をしているコンサル」に、新しいWebアプリの営業を行いたい
                 </Link>
@@ -103,7 +103,7 @@ export default class Index extends React.Component {
               <MovieText>
                 <u>中級編：AND・OR検索を使ってみよう！</u>
                 <br />
-                  「自然素材などを扱う住宅メーカー」に、新しい資材の営業を行いたい
+                  「東京都、神奈川県で自然素材などを扱う住宅メーカー」に、新しい資材の営業を行いたい
                 <br />
                   「Pマークの取得支援をしているコンサル」に、新しいWebアプリの営業を行いたい
               </MovieText>
