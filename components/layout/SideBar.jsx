@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import Cookies from 'universal-cookie';
 
 export default ({ currentPath }) => {
+  const cookies = new Cookies();
+
   return (
     <div>
       <SideMenu>
         <li>
           <a href='/'>検索事例 &gt;</a>
         </li>
+        { cookies.get('type') !== "trial" && (
         <li>
           <a href='/mail_templates'>メールテンプレート &gt;</a>
         </li>
+        )}
         <hr></hr>
         <li>
           <Link as='/documents/bs' href='/documents/bs'>

@@ -31,8 +31,11 @@ app.prepare()
   server.get('/documents/:slug', (req, res) => {
     const actualPage = '/documents';
     const queryParams = { slug: req.params.slug };
+    if(req.query.type){
+      res.cookie("type", "trial", {maxAge: 600000});
+    };
     app.render(req, res, actualPage, queryParams);
-  })
+  });
 
   server.get('/', (req, res) => {
     const actualPage = '/';
