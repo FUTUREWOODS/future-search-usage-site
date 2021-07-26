@@ -1,9 +1,30 @@
+import React, { useEffect,useState } from "react";
 import styled from 'styled-components';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
+
+const SideMenu = styled.ul`
+  li {
+    margin-bottom: 14px;
+    a {
+      color: #666666;
+      &.active {
+        color: #000;
+        font-weight: bold;
+      }
+    }
+  }
+`;
+
 export default ({ currentPath }) => {
-  const cookies = new Cookies();
+  const [showMailTemp, setShowMailTemp] = useState(true)
+  useEffect (()=>{
+    if (cookies.get('type') === "trial"){
+      setShowMailTemp(false)
+    }
+  })
 
   return (
     <div>
@@ -11,7 +32,7 @@ export default ({ currentPath }) => {
         <li>
           <a href='/'>検索事例 &gt;</a>
         </li>
-        { cookies.get('type') !== "trial" && (
+        { showMailTemp && (
         <li>
           <a href='/mail_templates'>メールテンプレート &gt;</a>
         </li>
@@ -43,16 +64,3 @@ export default ({ currentPath }) => {
     </div>
   );
 };
-
-const SideMenu = styled.ul`
-  li {
-    margin-bottom: 14px;
-    a {
-      color: #666666;
-      &.active {
-        color: #000;
-        font-weight: bold;
-      }
-    }
-  }
-`;
