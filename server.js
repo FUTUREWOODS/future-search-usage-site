@@ -9,6 +9,13 @@ app.prepare()
 .then(() => {
   const server = express();
 
+  server.use( '/*', function( req, res, next ){
+    if(req.query.plan){
+      res.cookie("type", "trial", {maxAge: 0});
+    };
+    next();
+  });
+
   server.get('/mail_templates', (req, res) => {
     console.log(req)
     const actualPage = '/mail_templates/index';
@@ -33,9 +40,6 @@ app.prepare()
     const queryParams = { slug: req.params.slug };
     if(req.query.type){
       res.cookie("type", "trial", {maxAge: 2629800000});
-    };
-    if(req.query.plan){
-      res.cookie("type", "trial", {maxAge: 0});
     };
     app.render(req, res, actualPage, queryParams);
   });
