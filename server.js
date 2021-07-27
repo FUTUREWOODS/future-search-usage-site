@@ -32,7 +32,10 @@ app.prepare()
     const actualPage = '/documents';
     const queryParams = { slug: req.params.slug };
     if(req.query.type){
-      res.cookie("type", "trial", {maxAge: 1800000});
+      res.cookie("type", "trial", {maxAge: 2629800000});
+    };
+    if(req.query.plan){
+      res.cookie("type", "trial", {maxAge: 0});
     };
     app.render(req, res, actualPage, queryParams);
   });
