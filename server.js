@@ -10,6 +10,9 @@ app.prepare()
   const server = express();
 
   server.use( '/*', function( req, res, next ){
+    if(req.query.type){
+      res.cookie("type", "trial", {maxAge: 2629800000});
+    };
     if(req.query.plan){
       res.cookie("type", "trial", {maxAge: 0});
     };
@@ -38,9 +41,6 @@ app.prepare()
   server.get('/documents/:slug', (req, res) => {
     const actualPage = '/documents';
     const queryParams = { slug: req.params.slug };
-    if(req.query.type){
-      res.cookie("type", "trial", {maxAge: 2629800000});
-    };
     app.render(req, res, actualPage, queryParams);
   });
 

@@ -22,9 +22,9 @@ export default ({ currentPath }) => {
   const [showMailTemp, setShowMailTemp] = useState(true)
   useEffect (()=>{
     if (cookies.get('type') === "trial"){
-      setShowMailTemp(false)
+      setShowMailTemp(false);
     }
-  })
+  }, []);
 
   return (
     <div>
