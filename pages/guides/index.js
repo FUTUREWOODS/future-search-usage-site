@@ -16,7 +16,13 @@ export default class Index extends React.Component {
             下記の検索ガイドで解説しておりますのでぜひご覧ください。
           </p>
           <p className='mt-5'>
-            <a href='https://service.future-search.jp/pdf/Manual_guide.pdf'>検索ガイドはこちら</a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://drive.google.com/file/d/1dD_9K6NYxTyi5s8P6VUhACbvkkcI0asp/view?usp=sharing"
+            >
+              検索ガイドはこちら
+            </a>
           </p>
           <div className='mb-5'></div>
         </PageCase>
