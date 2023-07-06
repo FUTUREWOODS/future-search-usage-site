@@ -33,7 +33,7 @@ export default class Index extends Component {
 
 Index.getInitialProps = async function({ url }) {
   const api = new Api();
-  let mailTemplates = await api.mailTemplates().orderby('date').order('desc');
+  let mailTemplates = await api.mailTemplates().orderby('date').order('asc');
   mailTemplates = mailTemplates.map(template => mailTemplateTitleFormtter(template));
   return { mailTemplates }
 }

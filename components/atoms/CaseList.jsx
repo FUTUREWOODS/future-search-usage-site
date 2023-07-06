@@ -22,8 +22,5 @@ export default ({ cases }) => {
 const List = styled.ul`
   li {
     line-height: 24px;
-    a {
-      text-decoration-line: underline;
-    }
   }
 `;
