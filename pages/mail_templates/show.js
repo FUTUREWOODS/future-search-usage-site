@@ -57,7 +57,7 @@ export default class MailTemplateShow extends Component {
 
   render() {
     const { title, postTitle, body, popups } = this.state;
-    const currentPath = this.props.url.pathname;
+    const currentPath = this.props.currentPath;
     return (
       <Layout currentPath={currentPath}>
         <PageHead title={title} />
@@ -99,12 +99,11 @@ export default class MailTemplateShow extends Component {
   }
 }
 
-MailTemplateShow.getInitialProps = async function(context, req) {
+MailTemplateShow.getInitialProps = async function(context) {
   const { id } = context.query;
-  const { asPath } = context;
   const api = new Api();
   const mailTemplate = await api.mailTemplates().id(id);
-  return { mailTemplate: mailTemplateFormatter(mailTemplate) , path: asPath};
+  return { mailTemplate: mailTemplateFormatter(mailTemplate), currentPath: context.pathname };
 }
 
 
