@@ -1,0 +1,3 @@
+{
+  "ignore": [".next/*", "components/*", "lib/*", "/pages/*"]
+}

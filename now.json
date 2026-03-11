@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "alias": ["future-search-usage-site.vercel.app"],
+  "builds": [
+    { "src": "package.json", "use": "@now/next" }
+  ],
+  "routes": [
+    { "src": "/mail_templates/(?<id>[^/]+)$", "dest": "/mail_templates/show?id=$id" },
+    { "src": "/documents/(?<slug>[^/]+)$", "dest": "/documents/?slug=$slug" }
+  ]
+}

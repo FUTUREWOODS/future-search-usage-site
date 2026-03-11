@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default () => {
   return (
-    <footer>
+    <footer style={ Style }>
       <Container>
         <CustomeRow>
           <Col xs={12} md={8}>
@@ -40,3 +40,7 @@ const FooterMenu = styled.ul`
     }
   }
 `;
+
+const Style = {
+  marginTop: "auto",
+}
