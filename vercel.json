@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/mail_templates/:id", "destination": "/mail_templates/show?id=:id" }
+    { "source": "/mail_templates/:id", "destination": "/mail_templates/show?id=:id" },
+    { "source": "/documents/:slug", "destination": "/documents?slug=:slug" }
   ]
 }
 
