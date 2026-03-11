@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <meta name="robots" content="noindex, nofollow" />
           <link rel="stylesheet" href="/static/reset.css" />
           <link
             rel="stylesheet"
