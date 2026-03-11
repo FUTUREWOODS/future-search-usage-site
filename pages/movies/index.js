@@ -1,3 +1,4 @@
+import React from 'react';
 import Layout from '../../components/layout/Layout';
 import PageHead from '../../components/molecules/PageHead';
 import PageCase from '../../components/molecules/PageCase';

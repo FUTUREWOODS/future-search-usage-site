@@ -14,17 +14,17 @@ export default ({ currentPath }) => {
         <hr></hr>
         <li>
           <Link as='/documents/bs' href='/documents/bs'>
-            <a>ビジネスサーチマニュアル &gt;</a>
+            ビジネスサーチマニュアル &gt;
           </Link>
         </li>
         <li>
           <Link as='/documents/ca' href='/documents/ca'>
-            <a>コンタクトアシストマニュアル &gt;</a>
+            コンタクトアシストマニュアル &gt;
           </Link>
         </li>
         <li>
           <Link as='/documents/dp' href='/documents/dp'>
-            <a>データプラスマニュアル &gt;</a>
+            データプラスマニュアル &gt;
           </Link>
         </li>
         <hr></hr>
