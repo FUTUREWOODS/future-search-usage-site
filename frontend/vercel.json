@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/mail_templates/:id", "destination": "/mail_templates/show?id=:id" }
+  ]
+}

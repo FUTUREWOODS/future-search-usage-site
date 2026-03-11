@@ -64,6 +64,7 @@ services:
     volumes:
       - ./frontend:/usr/local/app
     environment:
+      NODE_OPTIONS: "--openssl-legacy-provider"
       WP_URL: "http://wp-api:80"
     restart: always
     working_dir: /usr/local/app
