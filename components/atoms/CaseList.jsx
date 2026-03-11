@@ -8,9 +8,7 @@ export default ({ cases }) => {
         cases.map(item => {
           return (
             <li key={item.id}>
-              <Link href={`/mail_templates/${item.id}`} >
-                <a dangerouslySetInnerHTML={{__html: item.title}} />
-              </Link>
+              <a href={`/mail_templates/${item.id}`} dangerouslySetInnerHTML={{__html: item.title}} />
             </li>
           )
         })
